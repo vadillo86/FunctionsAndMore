@@ -15,7 +15,7 @@ function OnlyNumberValidation(e) {
     return motif.test(te); 
     
     
-    ---FORMAT NUMBER FUNCTION---
+    ---FORMAT NUMBER FUNCTION (WITH POINTS)---
     
     function formatNumber(e) {
     var num = e.value.replace(/\./g, '');
