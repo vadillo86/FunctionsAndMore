@@ -1,5 +1,7 @@
 Javascript
 
+---ONLY NUMBER FUNCTION---
+
 function OnlyNumberValidation(e) {
     key = (document.all) ? e.keyCode : e.which; 
     
@@ -11,3 +13,19 @@ function OnlyNumberValidation(e) {
     
     te = String.fromCharCode(key);
     return motif.test(te); 
+    
+    
+    ---FORMAT NUMBER FUNCTION---
+    
+    function formatNumber(e) {
+    var num = e.value.replace(/\./g, '');
+    if (!isNaN(num)) {
+        num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
+        num = num.split('').reverse().join('').replace(/^[\.]/, '');
+        e.value = num;
+    }
+
+    else {
+        e.value = e.value.replace(/[^\d\.]*/g, '');
+    }
+}
