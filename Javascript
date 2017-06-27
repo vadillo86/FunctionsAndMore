@@ -2,9 +2,12 @@ Javascript
 
 function OnlyNumberValidation(e) {
     key = (document.all) ? e.keyCode : e.which; 
+    
     if (key==8) return true; 
     else if (key == 0 || key == 9) return true;
-    //patron =/[0-9\s]/;// -> only words
-    patron =/[0-9\s]/;// -> only numbers
+   
+   //motif =/[0-9\s]/;// -> only words
+    motif =/[0-9\s]/;// -> only numbers
+    
     te = String.fromCharCode(key);
-    return patron.test(te); 
+    return motif.test(te); 
