@@ -4,31 +4,39 @@ Javascript
         ---onkeypress---
         
 function numberValidation(e) {
+
     key = (document.all) ? e.keyCode : e.which;
    
     if (key === 8)
         return true;
     else if (key === 0 || key === 9)
         return true
-    if (key === 44)
+    else if (key === 44)
         return true;
 
     motif = /(?:\d*\.)?\d+/g;
 
     te = String.fromCharCode(key);
     return motif.test(te);
-
 };
-    
     
     ---FORMAT NUMBER FUNCTION (MILES WITH POINTS)---
             ---onkeydown---
             
-   function formatNumber(e) {
+function formatNumber(e) {
 
-    var num = e.value.replace(/\./g, '');
+    var numComme = e.value;
+    
+    if (!numComme.indexOf(',') > -1) {
+        var num = e.value.replace(/\./g, '');
 
         num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
         num = num.split('').reverse().join('').replace(/^[\.]/, '');
         e.value = num;
+    }
+    if (numComme.indexOf(',') > -1) {
+        var afterComme = numComme.split(',');
+        afterComme = afterComme.toString();
+        e.value = afterComme;
+    }
 };
