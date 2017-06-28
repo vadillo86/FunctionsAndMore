@@ -26,13 +26,13 @@ function numberValidation(e) {
 function formatNumber(e) {
 
     var numComme = e.value;
-    
-    if (!numComme.indexOf(',') > -1) {
-        var num = e.value.replace(/\./g, '');
 
-        num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
-        num = num.split('').reverse().join('').replace(/^[\.]/, '');
-        e.value = num;
+    if (!numComme.indexOf(',') > -1) {
+        var beforeComma = e.value.replace(/\./g, '');
+
+        beforeComma = beforeComma.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
+        beforeComma = beforeComma.split('').reverse().join('').replace(/^[\.]/, '');
+        e.value = beforeComma;
     }
     if (numComme.indexOf(',') > -1) {
         var afterComme = numComme.split(',');
