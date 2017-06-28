@@ -1,31 +1,32 @@
 Javascript
 
----ONLY NUMBER FUNCTION---
+---ONLY NUMBER AND COMMA FUNCTION---
 
-function OnlyNumberValidation(e) {
-    key = (document.all) ? e.keyCode : e.which; 
-    
-    if (key==8) return true; 
-    else if (key == 0 || key == 9) return true;
+function numberValidation(e) {
+    key = (document.all) ? e.keyCode : e.which;
    
-   //motif =/[0-9\s]/;// -> only words
-    motif =/[0-9\s]/;// -> only numbers
-    
+    if (key === 8)
+        return true;
+    else if (key === 0 || key === 9)
+        return true
+    if (key === 44)
+        return true;
+
+    motif = /(?:\d*\.)?\d+/g;
+
     te = String.fromCharCode(key);
-    return motif.test(te); 
+    return motif.test(te);
+
+};
     
     
-    ---FORMAT NUMBER FUNCTION (WITH POINTS)---
+    ---FORMAT NUMBER FUNCTION (MILES WITH POINTS)---
     
-    function formatNumber(e) {
+   function formatNumber(e) {
+
     var num = e.value.replace(/\./g, '');
-    if (!isNaN(num)) {
+
         num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
         num = num.split('').reverse().join('').replace(/^[\.]/, '');
         e.value = num;
-    }
-
-    else {
-        e.value = e.value.replace(/[^\d\.]*/g, '');
-    }
-}
+};
